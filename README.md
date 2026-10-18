@@ -2,9 +2,9 @@
 
 ## Actividad 4 — Evaluación de modelos preentrenados
 
-**Asignatura:** Gestión de Proyectos de Inteligencia Artificial  
-**Módulo:** 2 — Semana 5  
-**Entorno:** Google Colab con GPU NVIDIA Tesla T4  
+**Asignatura:** Gestión de Proyectos de Inteligencia Artificial
+**Módulo:** 2 — Semana 5
+**Entorno:** Google Colab con GPU NVIDIA Tesla T4
 **Fecha de documentación:** 2026-10-18
 
 ---
@@ -64,10 +64,10 @@ que permiten obtenerlos desde Hugging Face Hub.
 
 ## 5. Dataset
 
-**Fuente:** UCI Machine Learning Repository.  
-**Nombre:** AI4I 2020 Predictive Maintenance Dataset.  
-**Identificador:** 601.  
-**Naturaleza:** datos sintéticos.  
+**Fuente:** UCI Machine Learning Repository.
+**Nombre:** AI4I 2020 Predictive Maintenance Dataset.
+**Identificador:** 601.
+**Naturaleza:** datos sintéticos.
 **Licencia:** CC BY 4.0.
 
 Enlace:
@@ -239,9 +239,9 @@ académico y no garantizan desempeño en producción.
 
 | Modelo | Latencia ms/registro | Memoria GPU MB | FP | FN |
 | --- | --- | --- | --- | --- |
-| TabICLv2 | 7.393 | 669.521 | 10 | 9 |
-| TabPFN v2 | 22.807 | 296.341 | 14 | 9 |
-| Mitra v1 | 38.210 | 6208.289 | 42 | 11 |
+| TabICLv2 | 7.906 | 669.521 | 10 | 9 |
+| TabPFN v2 | 24.557 | 296.341 | 14 | 9 |
+| Mitra v1 | 40.916 | 6208.289 | 42 | 11 |
 
 Las latencias representan promedios amortizados de
 inferencia por lotes, con modelos previamente cargados.
@@ -288,7 +288,7 @@ antes de cualquier aplicación real.
 
 Notebook principal:
 
-[Ejecutar en Google Colab](https://colab.research.google.com/github/isaaccg88/PredictiveMaintenance-AI-Activity4/blob/main/notebooks/PredictiveMaintenance_Actividad4.ipynb)
+[Ejecutar en Google Colab](https://colab.research.google.com/github/isaaccg88/PredictiveMaintenance-AI-Activity4/blob/mejora-academica-actividad4/notebooks/PredictiveMaintenance_Actividad4.ipynb)
 
 ### Requisitos
 
@@ -348,25 +348,7 @@ Sin embargo, la solución requiere validación con datos
 industriales reales, evaluación temporal y análisis
 económico antes de plantear su despliegue productivo.
 
-## 18. Auditoría académica ampliada
-
-[Consultar la comparación técnica, los trade-offs, las limitaciones y las fuentes](docs/academic_review.md).
-
-Se añadieron al notebook celdas para calcular **intervalos Wilson del recall**, **bootstrap pareado de F1** y **sensibilidad de costos relativos**. Estos nuevos resultados requieren ejecutarse en Google Colab; todavía no se presentan como mediciones verificadas.
-
-La selección de TabICLv2 permanece fijada con validación, antes de consultar prueba.
-
-## 19. Verificación y reproducibilidad
-
-- [Auditor independiente de archivos CSV](src/validate_artifacts.py) — ejecuta sin GPU.
-- [Dependencias observadas en el experimento](requirements.txt).
-- [Entorno de ejecución original](docs/environment.json).
-- [Protocolo](docs/experimental_protocol.md).
-- Notebook principal: [Abrir directamente en Colab](https://colab.research.google.com/github/isaaccg88/PredictiveMaintenance-AI-Activity4/blob/main/notebooks/PredictiveMaintenance_Actividad4.ipynb).
-
-**Pendientes de cierre:** demostrar autenticación Hugging Face mediante el secreto `HF_TOKEN` sin divulgarlo, ejecutar de nuevo el notebook en un runtime limpio y publicar resultados suplementarios. Las nuevas celdas no han sido ejecutadas ni verificadas con GPU desde esta revisión.
-
-## 20. Referencias
+## 17. Referencias
 
 1. UCI Machine Learning Repository. AI4I 2020.
    https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset
@@ -388,3 +370,109 @@ La selección de TabICLv2 permanece fijada con validación, antes de consultar p
 
 7. Scikit-learn. Classification metrics.
    https://scikit-learn.org/stable/modules/model_evaluation.html
+
+
+---
+
+## 18. Ficha técnica comparativa y licencias
+
+| Dimensión | TabICLv2 | TabPFN v2 | Mitra v1 |
+|---|---|---|---|
+| Familia | Transformer tabular ICL | Transformer tabular ICL | Transformer tabular bidimensional ICL |
+| Checkpoint identificado | tabicl-classifier-v2-20260212.ckpt | v2 finetuned, API ModelVersion.V2 | mitra-classifier (v1) |
+| Transferencia de checkpoint observada | ~110 MB | ~29 MB | ~303 MB |
+| Licencia de pesos | BSD-3-Clause | Prior Labs 1.1, atribución adicional | Apache-2.0 |
+| N.º estimadores | 4 | 4 | 1 |
+| Preparación de datos | One-Hot de Type | Igual | Igual; holdout interno 5% |
+| Recursos Colab | T4 GPU | T4 GPU | T4 GPU, reducción de contexto |
+
+Los tamaños son de archivos observados durante descarga, **no** la memoria total
+requerida ni el tamaño de todos los archivos de cada modelo. TabPFN requiere
+conservar atribuciones especiales; consultar licencia original antes de reutilización.
+
+### Criterios operativos
+La selección se basó en tarea binaria, licencia, compatibilidad GPU, disponibilidad
+de pesos, recall y F2, F1, falsos negativos, falsas alarmas, latencia y memoria.
+No existe en este experimento una cifra monetaria observada de costo por predicción.
+
+## 19. Incertidumbre estadística y sensibilidad económica
+
+El conjunto test incluye únicamente **51 fallas**. Una falla identificada de más o
+de menos modifica el recall en **1.96 puntos porcentuales**. Por tanto, no es correcto
+afirmar superioridad estadística sin analizar incertidumbre.
+
+### Intervalo descriptivo del recall (Wilson 95%)
+
+| Modelo | Fallas reales | Fallas detectadas | Recall | IC95 inferior | IC95 superior |
+| --- | --- | --- | --- | --- | --- |
+| TabICLv2 | 51 | 42 | 82.35% | 69.75% | 90.43% |
+| TabPFN v2 | 51 | 42 | 82.35% | 69.75% | 90.43% |
+| Mitra v1 | 51 | 40 | 78.43% | 65.37% | 87.51% |
+
+### Bootstrap pareado de la diferencia de F1
+
+| Comparación | Delta observado | IC95 bootstrap inferior | IC95 bootstrap superior | Repeticiones |
+| --- | --- | --- | --- | --- |
+| TabICLv2 - TabPFN v2 | 0.030 | -0.027 | 0.092 | 2000 |
+
+![Incertidumbre del recall](results/figures/12_intervalos_recall.svg)
+
+### Sensibilidad al costo hipotético de errores
+
+No se dispone de costos financieros reales. Se asigna FP = 1 unidad relativa y
+se varía FN = 1, 2, 5, 10, 20, 50 y 100 unidades. La elección ya se había fijado
+en validación: estos escenarios **no** se usan para elegir de nuevo con test.
+
+![Sensibilidad de costos relativos](results/figures/11_costo_sensibilidad.svg)
+
+Detalle completo: [cost_sensitivity.csv](results/cost_sensitivity.csv).
+
+## 20. Interpretación cuantitativa, límites y recomendación
+
+En test, TabICLv2 y TabPFN v2 identificaron 42 de las 51 fallas (recall 82.35%).
+TabICLv2 generó 10 falsas alarmas, frente a 14 de TabPFN v2: **4 menos (28.57%)**.
+La latencia media de TabICLv2 fue 7.906 ms/registro y la de TabPFN v2 fue 24.557
+ms/registro: **67.81% menor** para la configuración evaluada, aunque la memoria GPU
+del segundo fue más baja (296 MB vs 670 MB). Mitra detectó 40 de 51 fallas pero
+generó 42 falsas alarmas, con una latencia de 40.916 ms/registro.
+
+TabICLv2 también obtuvo mejor F1 y F2 en test, sin que estos resultados hayan
+modificado la decisión tomada antes en validación. La ventaja observada se
+refiere a estas configuraciones, este dataset sintético y esta GPU; no supone
+significancia estadística ni viabilidad garantizada en producción.
+
+### Riesgos y condiciones previas a un piloto real
+
+1. Evaluar series temporales y la anticipación efectiva de fallas (no disponible aquí).
+2. Validar con máquinas y sensores reales de distintas condiciones operativas.
+3. Medir precisión, recall y falsas alarmas por máquina, turno y tipo de falla.
+4. Estimar costos reales de paros, inspección y mantenimiento para fijar umbrales.
+5. Supervisión humana, monitoreo de drift y plan de reversión ante fallos.
+
+## 21. Trazabilidad y verificación
+
+- [Análisis académico y trade-offs](docs/academic_review.md).
+- [Protocolo experimental](docs/experimental_protocol.md).
+- [Revisión de integridad del ZIP](docs/integrity_audit.md).
+- [Entorno](docs/environment.json).
+- [Procedencia de checkpoints y hashes](docs/model_provenance.json).
+- [Pruebas automáticas de integridad](src/validate_artifacts.py).
+- [Dataset y particiones](data/).
+- [Métricas finales](results/test_metrics.csv) y [predicciones](results/test_predictions.csv).
+
+**Límite de reproducibilidad:** las versiones de bibliotecas están registradas,
+pero la revisión de pesos consultada durante una ejecución no prueba que fuese
+la efectivamente utilizada en otra. La descarga, las condiciones del runtime
+y las rutas de checkpoints deben comprobarse al ejecutar desde una sesión limpia.
+
+**Autenticación HF en la ejecución:** AUTENTICADO - token Read mediante secretos
+
+## 22. Referencias técnicas adicionales
+
+- Qu et al. (2026), TabICLv2: https://arxiv.org/abs/2602.11139
+- TabICL API: https://tabicl.readthedocs.io/en/latest/api.html
+- Prior Labs TabPFN: https://github.com/PriorLabs/TabPFN
+- Zhang et al. (2025), Mitra: https://arxiv.org/abs/2510.21204
+- AutoGluon documentación: https://auto.gluon.ai/
+- UCI AI4I 2020, DOI: https://doi.org/10.24432/C5HS5C
+

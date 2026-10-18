@@ -1,0 +1,22 @@
+Modelo,Costo unitario FP,Costo unitario FN,FP,FN,Costo relativo total,Nota
+TabICLv2,1,1,10,9,19,Escenario ilustrativo; no valores monetarios
+TabPFN v2,1,1,14,9,23,Escenario ilustrativo; no valores monetarios
+Mitra v1,1,1,42,11,53,Escenario ilustrativo; no valores monetarios
+TabICLv2,1,2,10,9,28,Escenario ilustrativo; no valores monetarios
+TabPFN v2,1,2,14,9,32,Escenario ilustrativo; no valores monetarios
+Mitra v1,1,2,42,11,64,Escenario ilustrativo; no valores monetarios
+TabICLv2,1,5,10,9,55,Escenario ilustrativo; no valores monetarios
+TabPFN v2,1,5,14,9,59,Escenario ilustrativo; no valores monetarios
+Mitra v1,1,5,42,11,97,Escenario ilustrativo; no valores monetarios
+TabICLv2,1,10,10,9,100,Escenario ilustrativo; no valores monetarios
+TabPFN v2,1,10,14,9,104,Escenario ilustrativo; no valores monetarios
+Mitra v1,1,10,42,11,152,Escenario ilustrativo; no valores monetarios
+TabICLv2,1,20,10,9,190,Escenario ilustrativo; no valores monetarios
+TabPFN v2,1,20,14,9,194,Escenario ilustrativo; no valores monetarios
+Mitra v1,1,20,42,11,262,Escenario ilustrativo; no valores monetarios
+TabICLv2,1,50,10,9,460,Escenario ilustrativo; no valores monetarios
+TabPFN v2,1,50,14,9,464,Escenario ilustrativo; no valores monetarios
+Mitra v1,1,50,42,11,592,Escenario ilustrativo; no valores monetarios
+TabICLv2,1,100,10,9,910,Escenario ilustrativo; no valores monetarios
+TabPFN v2,1,100,14,9,914,Escenario ilustrativo; no valores monetarios
+Mitra v1,1,100,42,11,1142,Escenario ilustrativo; no valores monetarios

@@ -1,0 +1,4 @@
+Modelo,Fallas reales,Fallas detectadas,Recall,IC95 inferior,IC95 superior,Método
+TabICLv2,51,42,0.8235294117647058,0.6974585747569192,0.9042759653087368,Wilson binomial; aproximación descriptiva
+TabPFN v2,51,42,0.8235294117647058,0.6974585747569192,0.9042759653087368,Wilson binomial; aproximación descriptiva
+Mitra v1,51,40,0.7843137254901961,0.6537364041400255,0.8750606159176724,Wilson binomial; aproximación descriptiva

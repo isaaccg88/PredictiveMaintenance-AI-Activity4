@@ -1,0 +1,2 @@
+Comparación,Métrica,Delta observado,IC95 bootstrap inferior,IC95 bootstrap superior,Repeticiones,Semilla,Método
+TabICLv2 - TabPFN v2,Diferencia de F1-score,0.03048725161056165,-0.02669807834441981,0.09152107071803206,2000,42,Bootstrap pareado percentil por registros
