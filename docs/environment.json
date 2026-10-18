@@ -1,6 +1,6 @@
 {
   "proyecto": "Predictive Maintenance AI - Actividad 4",
-  "fecha_utc": "2026-10-18T19:58:11.926006+00:00",
+  "fecha_utc": "2026-10-18T21:34:00.517517+00:00",
   "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
   "sistema": "Linux-6.6.122+-x86_64-with-glibc2.39",
   "gpu": "Tesla T4",
@@ -51,5 +51,7 @@
   },
   "modelo_seleccionado": "TabICLv2",
   "criterio_seleccion": "F2 máximo con precision >= 0.50",
+  "autenticacion_huggingface": "AUTENTICADO - token Read mediante secretos",
+  "checkpoint_tabicl_v2": "tabicl-classifier-v2-20260212.ckpt",
   "observacion_mitra": "AutoGluon redujo el soporte de contexto de 8192 a 4096 durante la ejecución por restricciones de memoria."
 }

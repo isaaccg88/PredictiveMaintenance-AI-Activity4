@@ -1,0 +1,35 @@
+{
+  "autenticacion": "AUTENTICADO - token Read mediante secretos",
+  "nota_revision": "SHA del Hub consultada ahora; no demuestra revisión usada en una corrida anterior.",
+  "modelos": {
+    "TabICLv2": {
+      "repo": "jingang/TabICL",
+      "revision_consultada": "4dcd344ece2c00be9e831fdd35bed57b5ad83e19",
+      "checkpoint_local": {
+        "archivo": "tabicl-classifier-v2-20260212.ckpt",
+        "bytes": 110368038,
+        "sha256": "bdc7dbd5e4ff21f8f0456fcf90c6b7cdf72dbea960f2d05b19bec19f9b3d4ed0"
+      }
+    },
+    "TabPFN v2": {
+      "repo": "Prior-Labs/TabPFN-v2-clf",
+      "revision_consultada": "f851f2a3c941544733b712d8c0f96dfae9b28862",
+      "checkpoint_local": {
+        "archivo": "tabpfn-v2-classifier-finetuned-zk73skhh.ckpt",
+        "bytes": 29009539,
+        "sha256": "cf8c519c01eaf1613ee91239006d57b1c806ff5f23ac1aeb1315ba1015210e49"
+      }
+    },
+    "Mitra v1": {
+      "repo": "autogluon/mitra-classifier",
+      "revision_consultada": "c425e9fa0910a6be1c494321792e7ba2a1367b1a",
+      "checkpoint_local": {
+        "archivo": "model.safetensors",
+        "bytes": 302717904,
+        "sha256": "e06a055e91a3baeffc37f9cf634d9e69a27d904b6686131dc3b702f9c0126b19"
+      }
+    }
+  },
+  "dataset_sha256": "ed347565ac389ce5acd66b2763065264b9aee8455793587b1d215cc3641772b4",
+  "splits_sha256": "10b121f177d44a8005b7b68ab68ecaad57b81dd004b7101c93c0aea66763bd21"
+}
