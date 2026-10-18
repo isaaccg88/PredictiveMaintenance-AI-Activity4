@@ -288,7 +288,7 @@ antes de cualquier aplicación real.
 
 Notebook principal:
 
-[Ejecutar en Google Colab](notebooks/PredictiveMaintenance_Actividad4.ipynb)
+[Ejecutar en Google Colab](https://colab.research.google.com/github/isaaccg88/PredictiveMaintenance-AI-Activity4/blob/main/notebooks/PredictiveMaintenance_Actividad4.ipynb)
 
 ### Requisitos
 
@@ -348,7 +348,25 @@ Sin embargo, la solución requiere validación con datos
 industriales reales, evaluación temporal y análisis
 económico antes de plantear su despliegue productivo.
 
-## 17. Referencias
+## 18. Auditoría académica ampliada
+
+[Consultar la comparación técnica, los trade-offs, las limitaciones y las fuentes](docs/academic_review.md).
+
+Se añadieron al notebook celdas para calcular **intervalos Wilson del recall**, **bootstrap pareado de F1** y **sensibilidad de costos relativos**. Estos nuevos resultados requieren ejecutarse en Google Colab; todavía no se presentan como mediciones verificadas.
+
+La selección de TabICLv2 permanece fijada con validación, antes de consultar prueba.
+
+## 19. Verificación y reproducibilidad
+
+- [Auditor independiente de archivos CSV](src/validate_artifacts.py) — ejecuta sin GPU.
+- [Dependencias observadas en el experimento](requirements.txt).
+- [Entorno de ejecución original](docs/environment.json).
+- [Protocolo](docs/experimental_protocol.md).
+- Notebook principal: [Abrir directamente en Colab](https://colab.research.google.com/github/isaaccg88/PredictiveMaintenance-AI-Activity4/blob/main/notebooks/PredictiveMaintenance_Actividad4.ipynb).
+
+**Pendientes de cierre:** demostrar autenticación Hugging Face mediante el secreto `HF_TOKEN` sin divulgarlo, ejecutar de nuevo el notebook en un runtime limpio y publicar resultados suplementarios. Las nuevas celdas no han sido ejecutadas ni verificadas con GPU desde esta revisión.
+
+## 20. Referencias
 
 1. UCI Machine Learning Repository. AI4I 2020.
    https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset
