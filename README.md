@@ -467,7 +467,21 @@ y las rutas de checkpoints deben comprobarse al ejecutar desde una sesión limpi
 
 **Autenticación HF en la ejecución:** AUTENTICADO - token Read mediante secretos
 
-## 22. Referencias técnicas adicionales
+## 22. Declaración de uso de inteligencia artificial
+
+Durante el desarrollo de la Actividad 4 se utilizó **ChatGPT (OpenAI)** como herramienta de apoyo académico y técnico. Su participación se declara de manera transparente en la siguiente tabla:
+
+| Herramienta de IA | Actividad en la que se utilizó | Alcance del apoyo |
+|---|---|---|
+| ChatGPT (OpenAI) | Planificación y selección de modelos | Apoyo en la definición del enfoque experimental, identificación y comparación de TabICLv2, TabPFN v2 y Mitra v1, y criterios de selección. |
+| ChatGPT (OpenAI) | Desarrollo de código Python y Google Colab | Generación, explicación, estructuración y revisión de celdas para carga de datos, preprocesamiento, inferencia, métricas y visualizaciones. |
+| ChatGPT (OpenAI) | Depuración y mejora técnica | Diagnóstico y corrección de errores de ejecución, dependencias, autenticación de Hugging Face y restricciones de memoria. |
+| ChatGPT (OpenAI) | Análisis e interpretación de resultados | Apoyo en la comparación de modelos, análisis de falsos positivos y negativos, optimización de umbrales, intervalos de confianza y sensibilidad de costos. |
+| ChatGPT (OpenAI) | Documentación y control de versiones | Redacción y revisión del README, documentación metodológica, auditoría de evidencias y asistencia con Git, GitHub y la integración de archivos. |
+
+**Alcance y responsabilidad:** ChatGPT se utilizó como asistente de desarrollo, análisis y documentación, no como fuente de métricas experimentales. Los valores numéricos reportados proceden de la ejecución del código en Google Colab y de los archivos de resultados conservados en el repositorio. El estudiante configuró las herramientas, ejecutó y comprobó el notebook, participó en las decisiones del proyecto y es responsable de la entrega y de la interpretación de sus resultados. Las limitaciones metodológicas se documentan explícitamente.
+
+## 23. Referencias técnicas adicionales
 
 - Qu et al. (2026), TabICLv2: https://arxiv.org/abs/2602.11139
 - TabICL API: https://tabicl.readthedocs.io/en/latest/api.html
