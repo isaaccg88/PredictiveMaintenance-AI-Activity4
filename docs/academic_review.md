@@ -1,7 +1,7 @@
 # Evaluación académica y condiciones de reproducibilidad
 
 ## Relación con la rúbrica
-Este complemento documenta la comparación de tres modelos preentrenados, su evaluación cuantitativa y sus limitaciones. Las **métricas numéricas son resultados observados** en los CSV publicados; la actualización experimental (intervalos, nueva sensibilidad) requiere ejecutar las celdas nuevas.
+Este complemento documenta la comparación de tres modelos preentrenados, su evaluación cuantitativa y sus limitaciones. Las **métricas numéricas son resultados observados** en los CSV publicados; la actualización experimental (intervalos y sensibilidad) se ejecutó y sus resultados están publicados en `results/`.
 
 ## Tabla comparativa de selección y recursos
 
@@ -35,7 +35,7 @@ En test TabICLv2 tuvo F1=81.55% (versus 78.50% de TabPFN v2) y F2=82.03% (versus
 
 ## Análisis económico
 
-Los costos relativos son ilustrativos y **no pesos mexicanos ni costos reales**. El escenario inicial FP=1, FN=10 produjo 100, 104 y 152 unidades para TabICLv2, TabPFN y Mitra. La nueva celda 16.2 evalúa más relaciones FP/FN y guarda el archivo `cost_sensitivity.csv` y la figura correspondiente, **después de su ejecución**. Estas simulaciones no intervienen en la selección ya congelada.
+Los costos relativos son ilustrativos y **no pesos mexicanos ni costos reales**. El escenario inicial FP=1, FN=10 produjo 100, 104 y 152 unidades para TabICLv2, TabPFN y Mitra. El bloque 16.2 evaluó distintas relaciones FP/FN. Los valores observados y la figura se publicaron en `results/cost_sensitivity.csv` y `results/figures/11_costo_sensibilidad.svg`. Estas simulaciones no intervienen en la selección ya congelada.
 
 ## Riesgos antes de despliegue
 
