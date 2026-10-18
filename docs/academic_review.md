@@ -18,7 +18,7 @@ Este complemento documenta la comparación de tres modelos preentrenados, su eva
 | Umbral validado | 0.25 | 0.22 | 0.15 |
 | Recall test | 82.35% | 82.35% | 78.43% |
 | F1 test | 81.55% | 78.50% | 60.15% |
-| Latencia test (ms/registro) | 7.393 | 22.807 | 38.210 |
+| Latencia test (ms/registro) | 7.906 | 24.557 | 40.916 |
 | GPU pico test (MB) | 669.52 | 296.34 | 6208.29 |
 
 **Tamaño:** corresponde al archivo descargado registrado durante ejecución, no al consumo de memoria o tamaño instalado total. **Latencia:** promedio amortizado por registro de un lote, con calentamiento; no es un SLA de producción. **Memoria:** asignaciones CUDA detectadas por PyTorch, no memoria total del sistema.
@@ -27,7 +27,7 @@ Este complemento documenta la comparación de tres modelos preentrenados, su eva
 
 TabICLv2 fue seleccionado **sobre validación** por F2 (0.8144), mayor que TabPFN v2 (0.7955) y Mitra v1 (0.7244), con precision mínima del 50% en ese conjunto. El umbral 0.25 de TabICLv2 incrementó su recall en validación desde 72.55% (umbral 0.50) a 84.31%, aceptando 17 falsas alarmas en lugar de las ocho originales. Esto es un **trade-off operativo**, no una mejora sin costo.
 
-En el **test independiente**, TabICLv2 identificó 42 de 51 fallas, exactamente las mismas que TabPFN v2. TabICLv2 originó 10 falsos positivos y TabPFN v2 14; es una reducción relativa del 28.57% en falsas alertas. Su latencia fue 7.393 frente a 22.807 ms/registro, 67.58% menor. A cambio TabPFN v2 utilizó menos memoria CUDA pico (296.34 frente a 669.52 MB). No se debe atribuir causalmente esta diferencia a la arquitectura, ya que existen configuraciones y recorridos internos diferentes.
+En el **test independiente**, TabICLv2 identificó 42 de 51 fallas, exactamente las mismas que TabPFN v2. TabICLv2 originó 10 falsos positivos y TabPFN v2 14; es una reducción relativa del 28.57% en falsas alertas. Su latencia fue 7.906 frente a 24.557 ms/registro, 67.81% menor. A cambio TabPFN v2 utilizó menos memoria CUDA pico (296.34 frente a 669.52 MB). No se debe atribuir causalmente esta diferencia a la arquitectura, ya que existen configuraciones y recorridos internos diferentes.
 
 Mitra detectó 40 de 51 fallas y produjo 42 falsos positivos en prueba; su precision pasó a 48.78%, por debajo de la restricción del 50% utilizada al elegir umbral en validación. Esta caída demuestra **riesgo de generalización**, no contaminación de la prueba.
 
